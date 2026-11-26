@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@600;800&display=swap" rel="stylesheet"><style>:root{--ink:#161311;--cream:#f5ede0;--or:#ff771c;--sl:#546877;--paper:#fffaf2;--line:#e0d3bf;--sand:#ebdfcb}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font:16px/1.65 Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+h1,h2,h3{font-family:Manrope,Inter,sans-serif;color:var(--ink);line-height:1.2;margin:0 0 .5em}h2{font-size:clamp(26px,3vw,34px)}
+a{color:var(--sl)}.wrap{max-width:1120px;margin:0 auto;padding:0 24px}section{padding:80px 0}.alt{background:var(--sand)}
+.sh{max-width:640px;margin-bottom:36px}.sh p{margin:0;color:var(--sl)}
+header{background:var(--ink);position:sticky;top:0;z-index:20}
+.bar{display:flex;align-items:center;gap:24px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--cream);font:800 20px Manrope,sans-serif;text-decoration:none;flex:none}.logo b{color:var(--or)}
+.hsrch{flex:1;max-width:560px;margin:0 auto;display:flex;align-items:center;background:var(--cream);border-radius:6px;padding:4px 4px 4px 14px;gap:8px}
+.hsrch svg{flex:none;color:var(--sl)}.hsrch input{border:0;background:transparent;padding:8px 0;outline:0;min-width:0}.hsrch button{border:0;background:var(--or);color:var(--ink);font-weight:700;padding:9px 18px;border-radius:4px;cursor:pointer}
+.burger{flex:none;margin-left:auto;width:44px;height:44px;border:1px solid #3a342f;background:transparent;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:0 11px}
+.burger span{height:2px;background:var(--cream);display:block}.burger:hover{border-color:var(--or)}
+.scrim{position:fixed;inset:0;background:rgba(22,19,17,.55);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:var(--ink);transform:translateX(100%);transition:transform .25s;z-index:40;padding:72px 28px 28px;display:flex;flex-direction:column;gap:4px;overflow:auto}
+.drawer a:not(.btn){color:var(--cream);text-decoration:none;padding:12px 0;border-bottom:1px solid #2e2925;font-weight:600}.drawer a.on,.drawer a:not(.btn):hover{color:var(--or)}.drawer .btn{margin-top:20px;text-align:center}
+.drawer .x{position:absolute;top:14px;right:16px;width:44px;height:44px;border:1px solid #3a342f;background:transparent;color:var(--cream);font-size:26px;border-radius:6px;cursor:pointer}
+body.nav .drawer{transform:none}body.nav .scrim{opacity:1;pointer-events:auto}
+.btn{display:inline-block;padding:12px 24px;border:1.5px solid var(--or);background:var(--or);color:var(--ink);font-weight:700;border-radius:5px;text-decoration:none;cursor:pointer;font-size:15px;font-family:inherit}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--ink)}.dark .btn.o,.hero .btn.o{color:var(--cream);border-color:var(--cream)}
+.hero{background:var(--ink);color:var(--cream);padding:88px 0 96px;border-bottom:6px solid var(--or);background-image:linear-gradient(115deg,transparent 60%,rgba(84,104,119,.35) 60%)}
+.hero h1{color:var(--cream);font-size:clamp(34px,5vw,58px);max-width:780px;letter-spacing:-.01em}.hero p{max-width:600px;font-size:18px;color:#d6cdbf}
+.hs{display:grid;grid-template-columns:1.6fr 1fr auto;gap:10px;background:var(--cream);padding:10px;border-radius:8px;max-width:820px;margin:32px 0 18px}
+.hs input,.hs select{border:1px solid var(--line);background:#fff}.hero .row .btn{margin:0}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column}.card h3{font-size:18px}.card p{margin:0}
+a.card{text-decoration:none;color:var(--ink)}a.card:hover{border-color:var(--or)}
+.ic{width:52px;height:52px;border-radius:8px;background:var(--sl);color:var(--cream);display:grid;place-items:center;flex:none;margin-bottom:16px}.ic.or{background:var(--or);color:var(--ink)}
+.job .jh{display:flex;align-items:center;gap:14px;margin-bottom:14px}.job .ic{margin:0}.job .row{margin-top:auto;padding-top:16px}
+.tags{margin:12px 0 4px}.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;background:var(--sand);border-radius:3px;margin:0 6px 6px 0}.demo{background:var(--or);color:var(--ink);font-weight:800}
+.meta{font-size:14px;color:var(--sl)}.row{display:flex;gap:10px;flex-wrap:wrap}.card .row{margin-top:14px}
+.steps .card{border-top:4px solid var(--or)}
+.dark{background:var(--ink);color:var(--cream)}.dark h2{color:var(--cream)}.dark .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}.dark p{color:#d6cdbf;max-width:560px;margin:0}
+form label{display:block;font-weight:600;font-size:14px;margin:16px 0 5px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbbda6;border-radius:5px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus,.btn:focus,button:focus-visible{outline:2px solid var(--or);outline-offset:1px}
+.filters{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:24px 0 28px;background:var(--paper);border:1px solid var(--line);padding:20px;border-radius:6px}.filters label{margin:0 0 4px;font-size:13px;font-weight:600;display:block}
+.err{color:#b3261e;font-size:13px}.note{background:#fff3e3;border-left:4px solid var(--or);padding:12px 16px;border-radius:3px;font-size:14px}
+.prog{height:6px;background:var(--sand);border-radius:3px;margin-bottom:24px;overflow:hidden}.prog i{display:block;height:100%;background:var(--or)}
+details{border-bottom:1px solid var(--line);padding:14px 0;max-width:760px}summary{cursor:pointer;font-weight:600}details p{margin:8px 0 0;color:var(--sl)}
+footer{background:var(--ink);color:#b9ae9e;padding:48px 0;font-size:14px}footer .wrap{display:grid;grid-template-columns:2fr 1fr;gap:32px}footer b{color:var(--cream)}footer p{margin:0 0 8px}
+@media(max-width:760px){section{padding:52px 0}.hero{padding:56px 0 64px}.bar{flex-wrap:wrap;gap:12px;padding:12px 0}.hsrch{order:3;flex:1 1 100%;max-width:none}.hs{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* v3: reference-style structure */
+.pill{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1px solid var(--line);border-radius:999px;background:#fff3e3;color:var(--sl);margin-bottom:16px}
+.ac{color:var(--sl)}.hero .ac{color:var(--or)}.ctr{text-align:center;margin-left:auto;margin-right:auto}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.about h2{font-size:clamp(28px,3.4vw,40px)}
+.art{border-radius:10px;overflow:hidden;border:1px solid var(--line)}.art svg{display:block;width:100%;height:auto}
+.checks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px}.checks li{display:flex;gap:12px;align-items:flex-start}.checks i{flex:none;width:22px;height:22px;margin-top:3px;border-radius:50%;background:var(--or);color:var(--ink);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px 16px;text-align:center}
+.stat b{display:block;font:800 clamp(30px,4vw,44px)/1.1 Manrope,sans-serif}.stat span{color:var(--sl);font-size:15px}
+.ribbon{overflow:hidden;padding:36px 0}.ribbon div{background:var(--ink);color:var(--cream);transform:rotate(-2deg);margin:0 -24px;padding:20px 0;overflow:hidden;white-space:nowrap}
+.ribbon p{display:inline-block;margin:0;font:600 clamp(20px,3vw,28px) Manrope,sans-serif;animation:mq 30s linear infinite}.ribbon span{color:var(--or);margin:0 28px}
+@keyframes mq{to{transform:translateX(-50%)}}@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.hero .wrap>*{animation:up .7s both}.hero .wrap>*:nth-child(2){animation-delay:.12s}.hero .wrap>*:nth-child(3){animation-delay:.24s}
+.card{transition:transform .2s,box-shadow .2s,border-color .2s}.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(22,19,17,.08)}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.js .rv.in{opacity:1;transform:none}
+.cc .card{align-items:center;text-align:center}.cc .ic{margin-left:auto;margin-right:auto}
+footer .wrap{grid-template-columns:2fr 1fr 1fr}footer p a{color:#b9ae9e;text-decoration:none}footer p a:hover{color:var(--or)}
+.copy{max-width:1120px;margin:32px auto 0!important;padding:20px 24px 0;border-top:1px solid #2e2925;font-size:13px}
+.top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border:0;border-radius:50%;background:conic-gradient(var(--or) calc(var(--p,0)*1%),#cbbda6 0);cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:15;color:var(--ink)}
+.top::before{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--cream)}.top svg{position:relative}.top.show{opacity:1;pointer-events:auto}
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:32px}.stats{grid-template-columns:1fr 1fr;gap:14px}footer .wrap{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ribbon p,.hero .wrap>*{animation:none!important}.js .rv{opacity:1;transform:none}}
+#adm{min-height:100vh;background:var(--cream)}
+.ah{position:sticky;top:0;background:var(--ink);color:var(--cream);display:flex;align-items:center;gap:16px;padding:12px 20px;flex-wrap:wrap;z-index:2}.ah .btn.o{color:var(--cream);border-color:var(--cream)}
+.tabs{display:flex;gap:6px;flex:1;overflow-x:auto}.tabs button{background:transparent;border:1px solid #3a342f;color:var(--cream);padding:8px 14px;border-radius:5px;cursor:pointer;font:inherit;white-space:nowrap}.tabs button.on{background:var(--or);color:var(--ink);border-color:var(--or)}
+.ab{max-width:1000px;margin:0 auto;padding:28px 20px 80px}.ag{max-width:420px;margin:12vh auto;padding:0 20px}
+.card.arow{flex-direction:row;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}.card.arow:hover{transform:none;box-shadow:none}
+.aform{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.aform .full{grid-column:1/-1}.x2{border:0;background:transparent;cursor:pointer;font-size:16px;color:var(--ink);padding:0 2px}
+.pv{min-height:80px;display:grid;place-items:center;background:var(--cream);margin:12px 0;border-radius:4px}
+@media(max-width:700px){.aform{grid-template-columns:1fr}}
+/* v4 polish */
+::selection{background:var(--or);color:var(--ink)}h1,h2{text-wrap:balance}p{text-wrap:pretty}h1,h2,h3{letter-spacing:-.015em}
+.btn,input,select,textarea{border-radius:10px}.card,.stat,.art,.filters{border-radius:14px}.tag{border-radius:999px;padding:3px 11px}
+.hsrch{border-radius:999px;padding:5px 5px 5px 18px;box-shadow:0 0 0 1px rgba(245,237,224,.15);transition:box-shadow .2s}.hsrch:focus-within{box-shadow:0 0 0 3px rgba(255,119,28,.55)}
+.hsrch button{border-radius:999px;padding:10px 22px;transition:transform .15s,filter .15s}.hsrch button:hover{filter:brightness(1.07)}.hsrch button:active{transform:scale(.97)}
+.btn{transition:transform .18s,box-shadow .18s,background .18s,color .18s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(255,119,28,.28)}
+.btn.o:hover{background:var(--ink);color:var(--cream);box-shadow:0 8px 18px rgba(22,19,17,.18)}.hero .btn.o:hover,.dark .btn.o:hover{background:var(--cream);color:var(--ink)}.btn:active{transform:none}
+.ic{border-radius:14px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}.card:hover .ic{transform:scale(1.08) rotate(-4deg)}
+section{padding:96px 0}.sh{margin-bottom:44px}.grid{align-items:stretch}
+.hero{background-image:repeating-radial-gradient(circle at 82% 52%,transparent 0 46px,rgba(245,237,224,.055) 46px 47px),linear-gradient(115deg,transparent 60%,rgba(84,104,119,.35) 60%);padding:112px 0 120px}
+.hero h1{font-size:clamp(36px,5.4vw,64px);line-height:1.08}
+.hero .wrap>*{animation:up .9s cubic-bezier(.2,.7,.2,1) both}.hero .wrap>*:nth-child(2){animation-delay:.15s}.hero .wrap>*:nth-child(3){animation-delay:.3s}
+.js .rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.wv{animation:wv 7s linear infinite}@keyframes wv{to{transform:translateX(300px)}}
+.ship{animation:bob 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes bob{50%{transform:translateY(-6px) rotate(-.6deg)}}
+.ribbon div:hover p{animation-play-state:paused}
+.drawer>a,.drawer>.btn{opacity:0;transform:translateX(18px);transition:opacity .35s,transform .35s,color .2s}body.nav .drawer>a,body.nav .drawer>.btn{opacity:1;transform:none}
+body.nav .drawer>a:nth-of-type(2){transition-delay:.05s}body.nav .drawer>a:nth-of-type(3){transition-delay:.1s}body.nav .drawer>a:nth-of-type(4){transition-delay:.15s}body.nav .drawer>a:nth-of-type(5){transition-delay:.2s}body.nav .drawer>a:nth-of-type(6){transition-delay:.25s}body.nav .drawer>a:nth-of-type(7){transition-delay:.3s}body.nav .drawer>.btn{transition-delay:.35s}
+.bar{transition:min-height .25s}body.sc .bar{min-height:62px}header{transition:box-shadow .25s}body.sc header{box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.sp{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--or);transform-origin:left;transform:scaleX(0)}
+summary{list-style:none;display:flex;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:22px;line-height:1;color:var(--sl);transition:transform .25s}details[open] summary::after{transform:rotate(45deg)}details{max-width:none}
+.cl{flex-direction:row;align-items:center;gap:16px}.cl .ic{margin:0}
+@media(max-width:760px){section{padding:56px 0}.hero{padding:64px 0 72px}}
+@media(prefers-reduced-motion:reduce){.wv,.ship{animation:none!important}.drawer>a,.drawer>.btn{opacity:1;transform:none}}
+/* cropper + banner preview */
+.hp{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--ink);margin:12px 0}
+.hp .hpm img,.hp .hpm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--px) var(--py)}
+.hp .hps{position:absolute;inset:0;background:linear-gradient(rgba(22,19,17,var(--o)),rgba(22,19,17,calc(var(--o) + .14)))}
+.hp .hpt{position:absolute;left:6%;top:42%;transform:translateY(-50%);color:#f5ede0;font:800 clamp(14px,3.6vw,26px)/1.2 Manrope,sans-serif}.hp .hpt b,.hp .hpt span{display:block}.hp .hpt span{color:var(--or)}
+.hp .hpw{position:absolute;left:0;bottom:-1px;width:100%;height:16%}
+.cm{position:fixed;inset:0;z-index:100;background:rgba(22,19,17,.74);display:grid;place-items:center;padding:14px;overflow:auto}
+.cb{background:var(--paper);border-radius:16px;padding:20px;max-width:620px;width:100%;max-height:96vh;overflow:auto}.cb h3{margin:0 0 4px}
+.cr{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:600 13px Inter,sans-serif;cursor:pointer;color:var(--ink)}.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.cs{position:relative;margin:0 auto;border-radius:10px;overflow:hidden;box-shadow:0 0 0 2px var(--or);background:repeating-conic-gradient(#d9cfbf 0 25%,#f1e9da 0 50%) 0 0/16px 16px}
+.cs canvas{display:block;touch-action:none;cursor:grab}
+.cs .ov{display:none;position:absolute;inset:0;flex-direction:column;justify-content:center;padding:0 7%;pointer-events:none;color:#f5ede0;font:800 clamp(14px,4vw,26px)/1.2 Manrope,sans-serif}.cs .ov.show{display:flex}.cs .ov span{color:var(--or)}
+.zl{display:flex;align-items:center;gap:12px}.zl input{flex:1}
+.ck{display:flex;gap:8px;align-items:center;font-weight:600;font-size:14px}.ck input{width:auto}
+.pst{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 20px}.pst div{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--or);border-radius:6px;padding:12px 14px;animation:pyin .5s both}.pst div:nth-child(2){animation-delay:.06s}.pst div:nth-child(3){animation-delay:.12s}.pst div:nth-child(4){animation-delay:.18s}.pst span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sl)}.pst b{font:800 22px Manrope,Inter,sans-serif}.pyg{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}.pyf{animation:pyin .5s both}.pyt{background:var(--ink);color:var(--cream);border-radius:6px;padding:24px;text-align:center;animation:pyin .5s .1s both}.pyt small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#bfb29c}.pyt .pa{font:800 44px/1.1 Manrope,Inter,sans-serif;color:var(--or);margin:8px 0 2px}.pyt p{margin:0;color:#d9cdb8;font-size:14px}.pyt .pu{margin:16px 0 12px;padding:8px 12px;border:1px dashed rgba(245,237,224,.35);border-radius:6px;font:600 14px ui-monospace,Menlo,monospace;word-break:break-all}.pyt .pb{background:var(--or);color:var(--ink);font-weight:700;border-radius:5px;padding:12px}@keyframes pyin{from{opacity:0;transform:translateY(12px)}}@media(max-width:760px){.pst{grid-template-columns:repeat(2,1fr)}.pyg{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.pst div,.pyf,.pyt{animation:none}}</style></head><body><div id="adm"></div><script>// Supabase connection. The PUBLISHABLE key is designed to be public: Row Level Security (see supabase-setup.sql) is what protects the data.
+// NEVER put a secret / service_role key in this file.
+const SB={url:'https://ufttrrzjzmpwcplgkpnz.supabase.co',key:'sb_publishable_ZnAYUqbE_WShsIQ9_8paRQ_kCDqFmgZ'};
+const DEMO=!(SB.url&&SB.key);
+const store={get:(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
+const FILES={};let JOBCACHE=null;
+const SES=()=>{try{return JSON.parse(sessionStorage.getItem('sbs'))}catch(e){return null}};
+async function sbAuth(grant,body){const r=await fetch(SB.url+'/auth/v1/token?grant_type='+grant,{method:'POST',headers:{apikey:SB.key,'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(d.error_description||d.msg||'Sign-in failed');const s={access:d.access_token,refresh:d.refresh_token,exp:d.expires_at||Math.floor(Date.now()/1000)+d.expires_in};try{sessionStorage.setItem('sbs',JSON.stringify(s))}catch(e){}return s}
+const sbSignIn=(email,pw)=>sbAuth('password',{email,password:pw});
+const sbSignOut=()=>{try{sessionStorage.removeItem('sbs')}catch(e){}};
+async function sbTok(){let s=SES();if(!s)return null;if(s.exp-Date.now()/1000<60){try{s=await sbAuth('refresh_token',{refresh_token:s.refresh})}catch(e){sbSignOut();return null}}return s.access}
+async function sb(path,o={}){const h=Object.assign({apikey:SB.key},o.headers||{});
+if(o.auth){const t=await sbTok();if(!t&&o.auth!=='opt')throw new Error('Please sign in again.');if(t)h.Authorization='Bearer '+t}
+let body=o.body;if(body!==undefined&&!(body instanceof Blob)){h['Content-Type']='application/json';body=JSON.stringify(body)}
+const r=await fetch(SB.url+path,{method:o.method||'GET',headers:h,body});
+if(!r.ok){let m=r.statusText;try{const j=await r.json();m=j.message||j.msg||j.error_description||j.error||m}catch(e){}throw new Error(m)}
+const t=await r.text();return t?JSON.parse(t):null}
+const toJob=r=>({id:r.id,title:r.title,employer:r.employer||'',dept:r.dept||'',rank:r.rank||'',loc:r.loc||'',type:r.type||'',dur:r.dur||'',sal:r.sal||'',exp:r.exp||'',quals:r.quals||'',dl:r.dl||'',desc:r.descr||'',resp:r.resp||[],docs:{req:r.docs_req&&r.docs_req.length?r.docs_req:['CV'],opt:r.docs_opt||[]},status:r.status,demo:!!r.demo});
+const fromJob=j=>({id:j.id,title:j.title,employer:j.employer,dept:j.dept,rank:j.rank,loc:j.loc,type:j.type,dur:j.dur,sal:j.sal,exp:j.exp,quals:j.quals,dl:j.dl||null,descr:j.desc,resp:j.resp,docs_req:j.docs.req,docs_opt:j.docs.opt,status:j.status||'published',demo:!!j.demo});
+async function loadLive(){const [s,c,j]=await Promise.all([sb('/rest/v1/site_settings?select=value&key=eq.site'),sb('/rest/v1/categories?select=department,ranks&order=position'),sb('/rest/v1/jobs?select=*&order=created_at.desc',{auth:'opt'})]);
+if(s&&s[0]&&s[0].value)Object.assign(SITE,s[0].value);
+if(c&&c.length){Object.keys(CATS).forEach(k=>delete CATS[k]);c.forEach(r=>CATS[r.department]=r.ranks)}
+JOBCACHE=j.map(toJob)}
+
+const SITE0={name:'Your Company Name',email:'info@example.com',phone:'+00 000 000 0000',logoA:'Harbour',logoB:'Bridge',logoImg:'',heroTitle:'Your Maritime Experience.',heroAccent:'New Opportunities Ashore.',heroText:'Discover flexible shore-based employment opportunities that match your maritime experience, qualifications and availability between sailing contracts.',heroImg:'',heroVid:'',heroPosX:'50',heroPosY:'50',heroOverlay:'70',aboutPill:'About us',aboutTitle:'Shore careers built for seafarers',aboutAccent:'between contracts',aboutText:'We connect Merchant Navy professionals with temporary, fixed-term and permanent roles ashore. Your rank is a starting point; employers still assess skills, certificates and experience for each role.',aboutImg:'',empTitle:'Hiring maritime talent?',empText:'Employer registration, verification and vacancy posting arrive in the next stage. Contact us to discuss your hiring needs.'};
+const SITE=Object.assign({},SITE0);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const CATS={};
+const TYPES=['Part-Time','Full-Time','Temporary','Fixed-Term','Permanent'];
+const DURS=['1 Month','2 Months','3 Months','4 Months','5 Months','6 Months','More than 6 Months','Permanent'];
+const rawJobs=()=>JOBCACHE||[];
+/* ===== Hidden admin panel: tap "2026" once, then "browser" three times ===== */
+const LIVE=!DEMO;
+const A={tab:'jobs',ok:false,step:'email',em:'',job:null,del:'',msg:'',apps:[]};
+const STAT=['Application Received','Documents Incomplete','Under Review','Shortlisted','Interview Scheduled','Employer Review','Selected','Not Selected'];
+const SF=[['name','Company name'],['email','Contact email'],['phone','Contact phone'],['logoA','Logo text (first part)'],['logoB','Logo text (accent part)'],['heroTitle','Hero heading'],['heroAccent','Hero heading (accent part)'],['heroText','Hero description','t'],['aboutPill','About label'],['aboutTitle','About heading'],['aboutAccent','About heading (accent part)'],['aboutText','About paragraph','t'],['empTitle','Employer heading'],['empText','Employer text','t']];
+const num=(v,d)=>{const n=parseFloat(v);return isNaN(n)?d:n};
+const hash=s=>{let h=5381;for(const c of s)h=(h*33^c.charCodeAt(0))>>>0;return String(h)};
+const csv=s=>String(s||'').split(',').map(x=>x.trim()).filter(Boolean);
+const selH=(n,o,v)=>`<select name="${n}">${o.map(x=>`<option ${x==v?'selected':''}>${esc(x)}</option>`).join('')}</select>`;
+const UPS={method:'POST',auth:true,headers:{Prefer:'resolution=merge-duplicates,return=minimal'}};
+const saveSite=()=>{try{store.set('site',SITE);return true}catch(e){return false}};
+const persistSite=async()=>{if(LIVE)await sb('/rest/v1/site_settings?on_conflict=key',Object.assign({body:{key:'site',value:SITE}},UPS));else if(!saveSite())throw new Error('Browser storage is full. Try a smaller photo.')};
+const adminLoad=async()=>{JOBCACHE=(await sb('/rest/v1/jobs?select=*&order=created_at.desc',{auth:true})).map(toJob);A.apps=await sb('/rest/v1/applications?select=*&order=created_at.desc',{auth:true})};
+async function saveCats(){try{if(LIVE){const ks=Object.keys(CATS);await sb('/rest/v1/categories?on_conflict=department',Object.assign({body:ks.map((k,i)=>({department:k,ranks:CATS[k],position:i}))},UPS));const ex=await sb('/rest/v1/categories?select=department');for(const r of ex)if(!CATS[r.department])await sb('/rest/v1/categories?department=eq.'+encodeURIComponent(r.department),{method:'DELETE',auth:true})}else store.set('cats',CATS)}catch(x){A.msg='Could not save: '+x.message}adm()}
+const PAN={};
+function adm(){const o=document.getElementById('adm');if(!o)return;const m=A.msg;A.msg='';
+if(!A.ok){o.innerHTML=`<div class="ag"><h2>Admin sign in</h2><form id="gf"><label>Email</label><input type="email" name="email" autocomplete="username" required><label>Password</label><input type="password" name="password" autocomplete="current-password" required><div class="err" id="ge">${m?esc(m):''}</div><div class="row"><button class="btn">Sign in</button><a class="btn o" href="index.html">Back to site</a></div></form></div>`;return}
+o.innerHTML=`<div class="ah"><b>Admin panel</b><nav class="tabs">${[['jobs','Jobs'],['cats','Categories'],['site','Site content'],['pay','Payment'],['img','Logo & photos'],['apps','Applications'],['data','Data']].map(t=>`<button data-a="tab" data-v="${t[0]}" class="${A.tab==t[0]?'on':''}">${t[1]}</button>`).join('')}</nav><a class="btn o" href="index.html">View site</a><button class="btn o" data-a="out">Sign out</button></div><div class="ab">${m?`<p class="note">${esc(m)}</p>`:''}${PAN[A.tab]()}</div>`}
+PAN.jobs=()=>{if(A.job)return jobForm(A.job);const L=rawJobs();return `<div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0">Jobs (${L.length})</h2><button class="btn" data-a="newjob">+ New job</button></div><div style="margin-top:20px">`+(L.length?L.map(j=>`<div class="card arow"><div><b>${esc(j.title)}</b> ${j.demo?'<span class="tag demo">DEMO</span>':''}<span class="tag">${esc(j.status||'published')}</span><div class="meta">${esc(j.dept)} › ${esc(j.rank)} · ${esc(j.loc)} · ${esc(j.type)} · ${esc(j.dur)}</div></div><div class="row" style="margin:0"><button class="btn o" data-a="editjob" data-id="${esc(j.id)}">Edit</button><button class="btn o" data-a="togjob" data-id="${esc(j.id)}">${j.status=='closed'?'Reopen':'Close'}</button><button class="btn o" data-a="deljob" data-id="${esc(j.id)}">${A.del==j.id?'Confirm delete':'Delete'}</button></div></div>`).join(''):'<div class="card">No jobs yet. Add one with "+ New job".</div>')+'</div>'};
+function jobForm(j){const d=j.dept||Object.keys(CATS)[0];const f=(n,l,v,x='')=>`<div class="${x}"><label>${l}</label><input name="${n}" value="${esc(v)}"></div>`;
+return `<h2>${j.id?'Edit job':'New job'}</h2><form id="jf" class="aform">${f('title','Job title',j.title)}${f('employer','Employer',j.employer)}<div><label>Department (category)</label>${selH('dept',Object.keys(CATS),d)}</div><div><label>Rank</label><span id="rk">${selH('rank',CATS[d]||[],j.rank)}</span></div>${f('loc','Location',j.loc)}<div><label>Employment type</label>${selH('type',TYPES,j.type)}</div><div><label>Contract duration</label>${selH('dur',DURS,j.dur)}</div>${f('sal','Salary',j.sal)}${f('exp','Experience required (e.g. 3 yrs)',j.exp)}${f('quals','Qualifications',j.quals)}<div><label>Application deadline</label><input type="date" name="dl" value="${esc(j.dl)}"></div><div><label>Status</label>${selH('status',['published','closed'],j.status||'published')}</div><div class="full"><label>Description</label><textarea name="desc" rows="4">${esc(j.desc)}</textarea></div><div class="full"><label>Responsibilities (one per line)</label><textarea name="resp" rows="4">${esc((j.resp||[]).join('\n'))}</textarea></div>${f('req','Required documents (comma separated)',(j.docs?j.docs.req:['CV']).join(', '))}${f('opt','Optional documents (comma separated)',(j.docs?j.docs.opt:[]).join(', '))}<div class="full"><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" name="demo" style="width:auto" ${j.demo?'checked':''}> Show DEMO label</label></div><div class="full row"><button class="btn">Save job</button><button type="button" class="btn o" data-a="canceljob">Cancel</button></div></form>`}
+PAN.cats=()=>`<h2>Categories and ranks</h2><div class="grid">${Object.keys(CATS).map(k=>`<div class="card"><div class="row" style="justify-content:space-between;align-items:center;margin:0"><b>${esc(k)}</b><button class="btn o" data-a="deldept" data-k="${esc(k)}">${A.del=='d:'+k?'Confirm':'Delete'}</button></div><div class="tags" style="margin-top:12px">${CATS[k].map((r,i)=>`<span class="tag">${esc(r)} <button type="button" class="x2" data-a="delrank" data-k="${esc(k)}" data-i="${i}" aria-label="Remove ${esc(r)}">×</button></span>`).join('')}</div><form data-a="addrank" data-k="${esc(k)}" class="row"><input name="r" placeholder="New rank" style="flex:1"><button class="btn">Add</button></form></div>`).join('')}</div><form data-a="adddept" class="row" style="margin-top:24px;max-width:480px"><input name="d" placeholder="New department / category" style="flex:1"><button class="btn">Add category</button></form>`;
+PAN.site=()=>`<h2>Site content</h2><form id="sf" class="aform">${SF.map(f=>`<div class="${f[2]?'full':''}"><label>${f[1]}</label>${f[2]?`<textarea name="${f[0]}" rows="3">${esc(SITE[f[0]])}</textarea>`:`<input name="${f[0]}" value="${esc(SITE[f[0]])}">`}</div>`).join('')}<div class="full row"><button class="btn">Save content</button></div></form>`;
+PAN.pay=()=>{const fee=SITE.feeAmount===undefined||SITE.feeAmount===''?3250:SITE.feeAmount,rs=n=>'₹'+Number(n||0).toLocaleString('en-IN'),by=k=>A.apps.filter(r=>r.payment_status==k),pd=by('paid'),sum=pd.reduce((t,r)=>t+Number(r.fee_amount||0),0);
+const st=LIVE?`<div class="pst"><div><span>Collected</span><b>${rs(sum)}</b></div><div><span>Paid</span><b>${pd.length}</b></div><div><span>In review</span><b>${by('review').length}</b></div><div><span>Unpaid</span><b>${by('unpaid').length}</b></div></div>`:'';
+return `<h2>Payment</h2>${st}<div class="pyg"><form id="pf" class="card pyf"><h3>Fee settings</h3><p class="meta">The website's fee, UPI button and QR code all use these values. Set the fee to 0 to make applications free.</p><label>Form fee (₹)</label><input name="feeAmount" type="number" min="0" step="1" value="${esc(fee)}"><label>UPI ID (e.g. name@bank)</label><input name="upiId" value="${esc(SITE.upiId||'')}" autocomplete="off"><label>Payee name (shown in the UPI app)</label><input name="payee" value="${esc(SITE.payee||'')}"><div class="row"><button class="btn">Save payment settings</button></div></form><div class="pyt"><small>Customer sees</small><div class="pa">${rs(fee)}</div><p>Form fee</p><div class="pu">${esc(SITE.upiId||'No UPI ID set yet')}</div><div class="pb">Pay ${rs(fee)} with UPI app</div></div></div>`};
+PAN.img=()=>{const o=num(SITE.heroOverlay,70),px=num(SITE.heroPosX,50),py=num(SITE.heroPosY,50);const sl=(l,k,v,mx)=>`<label>${l}</label><input type="range" min="0" max="${mx}" value="${v}" data-hs="${k}">`;
+return `<h2>Logo and photos</h2><p class="meta">${LIVE?'Pictures are stored in your Supabase storage.':'Pictures are kept only in this browser (demo mode).'} Choose a picture and a crop window opens first, so you can frame it exactly before it is saved.</p>
+<div class="card" style="margin-bottom:24px"><b>Home banner (behind the big headline)</b><p class="meta" style="margin-top:4px">A video plays muted on a loop; if no video is set the photo is used. The waves at the bottom stay.</p>
+<div class="hp" id="hp" style="--o:${o/100};--px:${px}%;--py:${py}%"><div class="hpm">${SITE.heroVid?`<video src="${esc(SITE.heroVid)}" muted loop autoplay playsinline></video>`:SITE.heroImg?`<img src="${esc(SITE.heroImg)}" alt="">`:''}</div><div class="hps"></div><div class="hpt"><b>Your Maritime Experience.</b><span>New Opportunities Ashore.</span></div><svg class="hpw" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path fill="rgba(84,104,119,.55)" d="M0,24 C240,-6 480,50 720,24 S1200,-6 1440,24 V60 H0Z"/><path fill="rgba(255,119,28,.3)" d="M0,32 C240,62 480,4 720,32 S1200,62 1440,32 V60 H0Z"/><path fill="#f5ede0" d="M0,44 C240,28 480,58 720,44 S1200,28 1440,44 V60 H0Z"/></svg></div>
+<label>Photo (you can crop it)</label><input type="file" accept="image/*" data-img="heroImg" aria-label="Banner photo"><div class="row"><button class="btn o" data-a="rmimg" data-k="heroImg">Remove photo</button></div>
+<label>Video (optional, mp4 or webm, up to 40 MB)</label>${LIVE?`<input type="file" accept="video/mp4,video/webm" data-vid="heroVid" aria-label="Banner video"><div class="meta" id="vst">Tip: a 10 to 20 second loop, 1080p or smaller, keeps the site fast.</div><div class="row"><button class="btn o" data-a="rmvid">Remove video</button></div>`:'<p class="meta">Video upload needs the Supabase connection.</p>'}
+${sl('Darkness over the picture: <b id="lo">'+o+'</b>%','o',o,90)}${sl('Horizontal focus (which part stays visible on narrow screens)','x',px,100)}${sl('Vertical focus','y',py,100)}
+<div class="row"><button class="btn" data-a="savehp">Save banner look</button></div></div>
+<div class="grid">${[['logoImg','Logo',300,'Used in the header and footer. Dark lettering on a plain light background is made transparent for you.'],['aboutImg','About section photo',1200,'Replaces the ship drawing in the About section.']].map(x=>`<div class="card"><b>${x[1]}</b><p class="meta" style="margin:4px 0 0">${x[3]}</p><div class="pv">${SITE[x[0]]?`<img src="${esc(SITE[x[0]])}" alt="" style="max-width:100%;max-height:150px">`:'<span class="meta">Default (nothing uploaded)</span>'}</div><input type="file" accept="image/*" data-img="${x[0]}" aria-label="${x[1]}"><div class="row"><button class="btn o" data-a="rmimg" data-k="${x[0]}">Reset to default</button></div></div>`).join('')}</div>`};
+PAN.apps=()=>{const L=LIVE?A.apps.map(r=>({id:r.id,job:r.job_title,data:r.data||{},date:(r.created_at||'').slice(0,10),status:r.status,files:r.files||{},ps:r.payment_status||'',utr:r.utr||'',fee:r.fee_amount})):store.get('apps',[]);return `<h2>Applications (${L.length})</h2>`+(L.length?L.map((a,i)=>`<div class="card arow"><div><b>${esc(a.id)}</b> · ${esc(a.job)}<div class="meta">${esc(a.data.name)} · ${esc(a.data.email)} · ${esc(a.data.mobile)} · ${esc(a.data.crank)} · ${esc(a.date)}</div>${LIVE?`<div class="meta">Payment: <b>${esc(a.ps)}</b>${a.fee?' · ₹'+esc(a.fee):''}${a.utr?' · UTR '+esc(a.utr):''}</div>`:''}${Object.keys(a.files||{}).length&&LIVE?`<div class="row">${Object.keys(a.files).map(k=>`<button class="btn o" data-a="doc" data-p="${esc(a.files[k])}">${esc(k)}</button>`).join('')}</div>`:''}</div><select data-a="stat" data-i="${i}" data-id="${esc(a.id)}" aria-label="Status">${STAT.map(s=>`<option ${s==a.status?'selected':''}>${s}</option>`).join('')}</select>${LIVE?`<select data-a="pay" data-id="${esc(a.id)}" aria-label="Payment status">${['unpaid','review','paid','rejected','free'].map(s=>`<option ${s==a.ps?'selected':''}>${s}</option>`).join('')}</select>`:''}</div>`).join(''):'<div class="card">No applications yet.</div>')};
+PAN.data=()=>LIVE?`<h2>Data</h2><div class="grid"><div class="card"><b>Connected to Supabase</b><p class="meta">${esc(SB.url.replace('https://',''))}</p><div class="row"><button class="btn" data-a="exp">Export JSON</button><button class="btn o" data-a="out">Sign out</button></div></div></div>`:`<h2>Data</h2><div class="grid"><div class="card"><b>Backup</b><p class="meta">Download jobs, categories, content, photos and applications as JSON.</p><div class="row"><button class="btn" data-a="exp">Export</button></div><label>Import backup</label><input type="file" accept=".json" data-a="imp"></div><div class="card"><b>Reset</b><p class="meta">Restore default jobs, categories and content. Applications are kept.</p><div class="row"><button class="btn o" data-a="reset">${A.del=='reset'?'Click again to confirm':'Reset website data'}</button></div></div><div class="card"><b>Admin passcode</b><form data-a="pw"><input type="password" name="p" placeholder="New passcode (min 4)" autocomplete="off"><div class="row"><button class="btn">Change</button></div></form></div></div>`;
+document.addEventListener('click',e=>{const b=e.target.closest('#adm [data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,id=b.dataset.id,pv=A.del;A.del='';
+(async()=>{const jq=x=>'/rest/v1/jobs?id=eq.'+encodeURIComponent(x);
+if(a=='tab'){A.tab=b.dataset.v;A.job=null;adm()}
+else if(a=='newjob'){A.job={};adm()}else if(a=='canceljob'){A.job=null;adm()}
+else if(a=='editjob'){A.job=rawJobs().find(j=>j.id==id);adm()}
+else if(a=='togjob'){const j=rawJobs().find(x=>x.id==id),st=j.status=='closed'?'published':'closed';if(LIVE){await sb(jq(id),{method:'PATCH',auth:true,body:{status:st},headers:{Prefer:'return=minimal'}});await adminLoad()}else store.set('jobs',rawJobs().map(x=>x.id==id?Object.assign({},x,{status:st}):x));adm()}
+else if(a=='deljob'){if(pv==id){if(LIVE){await sb(jq(id),{method:'DELETE',auth:true});await adminLoad()}else store.set('jobs',rawJobs().filter(x=>x.id!=id))}else A.del=id;adm()}
+else if(a=='deldept'){if(pv=='d:'+k){delete CATS[k];saveCats()}else{A.del='d:'+k;adm()}}
+else if(a=='delrank'){CATS[k].splice(+b.dataset.i,1);saveCats()}
+else if(a=='rmimg'){SITE[k]='';await persistSite();adm()}
+else if(a=='rmvid'){SITE.heroVid='';await persistSite();A.msg='Video removed.';adm()}
+else if(a=='savehp'){const g=n=>document.querySelector('[data-hs='+n+']').value;SITE.heroOverlay=g('o');SITE.heroPosX=g('x');SITE.heroPosY=g('y');await persistSite();A.msg='Banner look saved. Refresh the website to see it.';adm()}
+else if(a=='doc'){const r=await sb('/storage/v1/object/sign/documents/'+b.dataset.p,{method:'POST',auth:true,body:{expiresIn:300}});window.open(SB.url+'/storage/v1'+r.signedURL,'_blank')}
+else if(a=='out'){sbSignOut();closeAdmin()}
+else if(a=='exp'){const u=URL.createObjectURL(new Blob([JSON.stringify({jobs:rawJobs(),cats:CATS,site:SITE,apps:LIVE?A.apps:store.get('apps',[])},null,1)],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='site-data.json';l.click()}
+else if(a=='reset'){if(pv=='reset'){['jobs','cats','site'].forEach(x=>localStorage.removeItem(x));location.reload()}else{A.del='reset';adm()}}})().catch(x=>{A.msg=x.message;adm()})});
+document.addEventListener('submit',e=>{const f=e.target;if(!f.closest('#adm'))return;e.preventDefault();const fd=new FormData(f),a=f.dataset.a;
+(async()=>{
+if(f.id=='gf'){const er=document.getElementById('ge');er.textContent='Signing in...';const em=(fd.get('email')||'').trim().toLowerCase();try{await sbSignIn(em,fd.get('password')||'');const ad=await sb('/rest/v1/admins?select=user_id',{auth:true});if(!ad.length){sbSignOut();throw new Error('This account is not an admin.')}await adminLoad();A.ok=true;adm()}catch(x){er.textContent=x.message}}
+else if(f.id=='jf'){const j=Object.assign({},A.job);['title','employer','dept','rank','loc','type','dur','sal','exp','quals','dl','desc','status'].forEach(k=>j[k]=(fd.get(k)||'').trim());
+j.resp=fd.get('resp').split('\n').map(s=>s.trim()).filter(Boolean);j.docs={req:csv(fd.get('req')),opt:csv(fd.get('opt'))};if(!j.docs.req.length)j.docs.req=['CV'];j.demo=fd.get('demo')=='on';j.employer=j.employer||SITE.name;if(!j.id)j.id='j'+Date.now().toString(36);
+if(LIVE){await sb('/rest/v1/jobs?on_conflict=id',Object.assign({body:fromJob(j)},UPS));await adminLoad()}else{const L=rawJobs().slice(),ix=L.findIndex(x=>x.id==j.id);if(ix<0)L.push(j);else L[ix]=j;store.set('jobs',L)}
+A.job=null;A.msg='Job saved.';adm()}
+else if(f.id=='pf'){const n=Number(fd.get('feeAmount'));if(isNaN(n)||n<0)throw new Error('Enter a valid fee.');const u=(fd.get('upiId')||'').trim();if(n>0&&!/^[\w.\-]{2,}@[\w.\-]{2,}$/.test(u))throw new Error('Enter a valid UPI ID like name@bank.');SITE.feeAmount=n;SITE.upiId=u;SITE.payee=(fd.get('payee')||'').trim();await persistSite();A.msg='Payment settings saved.';adm()}
+else if(f.id=='sf'){SF.forEach(x=>SITE[x[0]]=(fd.get(x[0])||'').trim());await persistSite();A.msg='Saved. The website now shows your changes.';adm()}
+else if(a=='addrank'){const r=fd.get('r').trim(),k=f.dataset.k;if(r&&!CATS[k].includes(r)){CATS[k].push(r);saveCats()}}
+else if(a=='adddept'){const d=fd.get('d').trim();if(d&&!CATS[d]){CATS[d]=['Other'];saveCats()}}
+else if(a=='pw'){const p=fd.get('p');if(p.length>=4){store.set('apw',hash(p));A.msg='Passcode changed.'}else A.msg='Use at least 4 characters.';adm()}
+})().catch(x=>{A.msg='Could not save: '+x.message;adm()})});
+document.addEventListener('change',e=>{const t=e.target;if(!t.closest('#adm'))return;
+(async()=>{
+if(t.dataset.a=='stat'){if(LIVE){await sb('/rest/v1/applications?id=eq.'+encodeURIComponent(t.dataset.id),{method:'PATCH',auth:true,body:{status:t.value},headers:{Prefer:'return=minimal'}});const r=A.apps.find(x=>x.id==t.dataset.id);if(r)r.status=t.value}else{const L=store.get('apps',[]);L[+t.dataset.i].status=t.value;store.set('apps',L)}}
+else if(t.dataset.a=='pay'){await sb('/rest/v1/applications?id=eq.'+encodeURIComponent(t.dataset.id),{method:'PATCH',auth:true,body:{payment_status:t.value,paid_at:t.value=='paid'?new Date().toISOString():null},headers:{Prefer:'return=minimal'}});const r=A.apps.find(x=>x.id==t.dataset.id);if(r)r.payment_status=t.value;A.msg='Payment status updated.';adm()}
+else if(t.name=='dept'&&t.form&&t.form.id=='jf'){document.getElementById('rk').innerHTML=selH('rank',CATS[t.value]||[],'')}
+else if(t.dataset.img&&t.files[0]){const f=t.files[0];t.value='';await openCrop(t.dataset.img,f)}
+else if(t.dataset.vid&&t.files[0]){const f=t.files[0],st=document.getElementById('vst');t.value='';
+if(!/^video\/(mp4|webm)$/.test(f.type)){throw new Error('Please choose an mp4 or webm video.')}
+if(f.size>40e6){throw new Error('That video is '+Math.round(f.size/1e6)+' MB. Please compress it below 40 MB.')}
+if(st)st.textContent='Uploading video, please wait...';
+const old=SITE.heroVid,path='heroVid-'+Date.now()+(f.type=='video/webm'?'.webm':'.mp4');
+try{await sb('/storage/v1/object/site-media/'+path,{method:'POST',auth:true,body:f,headers:{'Content-Type':f.type}});SITE.heroVid=SB.url+'/storage/v1/object/public/site-media/'+path;await persistSite();A.msg='Video saved.'}catch(x){SITE.heroVid=old;throw x}
+adm()}
+else if(t.dataset.a=='imp'&&t.files[0]){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);['jobs','cats','site','apps'].forEach(x=>{if(d[x]!=null)store.set(x,d[x])});location.reload()}catch(x){A.msg='That file is not a valid backup.';adm()}};r.readAsText(t.files[0])}
+})().catch(x=>{A.msg='Could not save: '+x.message;adm()})});
+
+document.addEventListener('input',e=>{const t=e.target,hp=document.getElementById('hp');if(!t.dataset||!t.dataset.hs||!hp)return;
+if(t.dataset.hs=='o'){hp.style.setProperty('--o',t.value/100);const l=document.getElementById('lo');if(l)l.textContent=t.value}else hp.style.setProperty(t.dataset.hs=='x'?'--px':'--py',t.value+'%')});
+/* ===== Image cropper ===== */
+const CROPS={logoImg:{t:'Crop your logo',out:900,png:1,bg:1,ar:[['Original shape','o'],['3 : 1',3],['2 : 1',2],['Square',1]]},
+heroImg:{t:'Crop the banner photo',out:1920,txt:1,ar:[['Wide 16:9',16/9],['Ultra wide 21:9',21/9],['Phone tall 9:16',9/16],['4 : 3',4/3],['Square',1],['Original shape','o']]},
+aboutImg:{t:'Crop the About photo',out:1200,ar:[['As shown 5:3',5/3],['4 : 3',4/3],['Square',1],['Original shape','o']]}};
+let CR=null;
+function cropClose(){const m=document.getElementById('crop');if(m)m.remove();CR=null}
+function clearBg(src){const w=src.width,h=src.height,c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.drawImage(src,0,0);const d=x.getImageData(0,0,w,h),p=d.data,E=[],st=Math.max(1,Math.floor(Math.max(w,h)/80));
+for(let i=0;i<w;i+=st)E.push(i*4,((h-1)*w+i)*4);for(let j=0;j<h;j+=st)E.push(j*w*4,(j*w+w-1)*4);
+let tr=0;E.forEach(o=>{if(p[o+3]<250)tr++});if(tr>E.length*.5)return src;
+const med=ch=>{const q=E.map(o=>p[o+ch]).sort((m,n)=>m-n);return Math.max(1,q[q.length>>1])},B=[med(0),med(1),med(2)];
+if((B[0]+B[1]+B[2])/3<150)return src;
+for(let i=0;i<p.length;i+=4){let m=0;for(let ch=0;ch<3;ch++){const v=(B[ch]-p[i+ch])/B[ch];if(v>m)m=v}
+let al=Math.min(1,m/.92);if(al<.06)al=0;
+if(!al)p[i+3]=0;else{for(let ch=0;ch<3;ch++){const v=(p[i+ch]-B[ch]*(1-al))/al;p[i+ch]=v<0?0:v>255?255:v}p[i+3]=Math.round(al*255)}}
+x.putImageData(d,0,0);return c}
+async function openCrop(k,file){const cfg=CROPS[k],url=URL.createObjectURL(file);
+const im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(new Error('That file is not an image.'));i.src=url});
+const m0=Math.min(1,2400/Math.max(im.width,im.height)),raw=document.createElement('canvas');raw.width=Math.round(im.width*m0);raw.height=Math.round(im.height*m0);raw.getContext('2d').drawImage(im,0,0,raw.width,raw.height);URL.revokeObjectURL(url);
+CR={k,cfg,raw,src:raw,clear:null,ai:0,zoom:1,ox:0,oy:0,W:0,H:0,ptr:new Map()};
+if(cfg.bg){CR.clear=clearBg(raw);CR.src=CR.clear}
+buildCrop()}
+function cropDraw(){const c=CR,cv=document.getElementById('cc');if(!c||!cv)return;const x=cv.getContext('2d'),s=c.cover*c.zoom,iw=c.src.width*s,ih=c.src.height*s;
+c.ox=Math.min(0,Math.max(c.W-iw,c.ox));c.oy=Math.min(0,Math.max(c.H-ih,c.oy));
+x.setTransform(c.dpr,0,0,c.dpr,0,0);x.clearRect(0,0,c.W,c.H);x.imageSmoothingQuality='high';x.drawImage(c.src,c.ox,c.oy,iw,ih)}
+function cropLayout(){const c=CR,cv=document.getElementById('cc'),cs=document.getElementById('cs'),a=c.cfg.ar[c.ai][1],r=a=='o'?c.src.width/c.src.height:a;
+const mw=Math.min(innerWidth-72,540),mh=Math.min(innerHeight*.44,420);let W=mw,H=W/r;if(H>mh){H=mh;W=H*r}
+c.W=Math.round(W);c.H=Math.round(H);c.r=c.W/c.H;c.dpr=Math.min(devicePixelRatio||1,2);
+cv.width=c.W*c.dpr;cv.height=c.H*c.dpr;cv.style.width=cs.style.width=c.W+'px';cv.style.height=cs.style.height=c.H+'px';
+c.zoom=1;document.getElementById('cz').value=1;c.cover=Math.max(c.W/c.src.width,c.H/c.src.height);
+c.ox=(c.W-c.src.width*c.cover)/2;c.oy=(c.H-c.src.height*c.cover)/2;cropDraw()}
+function cropZoom(z){const c=CR;z=Math.min(4,Math.max(1,z));const s0=c.cover*c.zoom,s1=c.cover*z,cx=c.W/2,cy=c.H/2;c.ox=cx-(cx-c.ox)/s0*s1;c.oy=cy-(cy-c.oy)/s0*s1;c.zoom=z;document.getElementById('cz').value=z;cropDraw()}
+function cropOut(){const c=CR,s=c.cover*c.zoom,sx=-c.ox/s,sy=-c.oy/s,sw=c.W/s,sh=c.H/s,base=c.r>=1?c.cfg.out:Math.round(c.cfg.out*.6),ow=Math.max(32,Math.min(base,Math.round(sw))),oh=Math.max(1,Math.round(ow/c.r)),o=document.createElement('canvas');o.width=ow;o.height=oh;const x=o.getContext('2d');x.imageSmoothingQuality='high';x.drawImage(c.src,sx,sy,sw,sh,0,0,ow,oh);return o}
+async function saveImg(k,c,png){const old=SITE[k];try{if(LIVE){const bl=await new Promise(ok=>c.toBlob(ok,png?'image/png':'image/jpeg',.88)),path=k+'-'+Date.now()+(png?'.png':'.jpg');await sb('/storage/v1/object/site-media/'+path,{method:'POST',auth:true,body:bl,headers:{'Content-Type':bl.type}});SITE[k]=SB.url+'/storage/v1/object/public/site-media/'+path}else SITE[k]=c.toDataURL(png?'image/png':'image/jpeg',.88);await persistSite()}catch(x){SITE[k]=old;throw x}}
+function buildCrop(){const c=CR,cfg=c.cfg,old=document.getElementById('crop');if(old)old.remove();
+const d=document.createElement('div');d.id='crop';d.className='cm';
+d.innerHTML=`<div class="cb"><h3>${cfg.t}</h3><p class="meta">Drag the picture to move it. Pinch, scroll or use the slider to zoom. The frame is exactly what gets saved.</p><div class="cr">${cfg.ar.map((x,i)=>`<button type="button" class="chip${i==c.ai?' on':''}" data-ai="${i}">${x[0]}</button>`).join('')}</div><div class="cs" id="cs"><canvas id="cc"></canvas>${cfg.txt?`<div class="ov" id="cov" style="background:rgba(22,19,17,${num(SITE.heroOverlay,70)/100})"><b>Your Maritime Experience.</b><span>New Opportunities Ashore.</span></div>`:''}</div><label class="zl">Zoom<input type="range" id="cz" min="1" max="4" step="0.01" value="1"></label>${cfg.bg?'<label class="ck"><input type="checkbox" id="crm" checked> Make a plain background transparent</label>':''}${cfg.txt?'<label class="ck"><input type="checkbox" id="ctx"> Preview the headline on top</label>':''}<div class="err" id="cerr"></div><div class="row"><button type="button" class="btn" id="cok">Use this crop</button><button type="button" class="btn o" id="cno">Cancel</button></div></div>`;
+document.body.appendChild(d);
+d.addEventListener('click',e=>{const b=e.target.closest('[data-ai]');if(b){c.ai=+b.dataset.ai;d.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x==b));cropLayout()}else if(e.target==d)cropClose()});
+d.querySelector('#cno').onclick=cropClose;
+d.querySelector('#cz').addEventListener('input',e=>cropZoom(+e.target.value));
+const rm=d.querySelector('#crm');if(rm)rm.addEventListener('change',()=>{c.src=rm.checked?c.clear:c.raw;cropLayout()});
+const tx=d.querySelector('#ctx');if(tx)tx.addEventListener('change',()=>d.querySelector('#cov').classList.toggle('show',tx.checked));
+const cv=d.querySelector('#cc'),pd=()=>{const p=[...c.ptr.values()];return p.length<2?0:Math.hypot(p[0][0]-p[1][0],p[0][1]-p[1][1])};let ld=0;
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);c.ptr.set(e.pointerId,[e.clientX,e.clientY]);ld=pd();cv.style.cursor='grabbing'});
+cv.addEventListener('pointermove',e=>{if(!c.ptr.has(e.pointerId))return;const p=c.ptr.get(e.pointerId);
+if(c.ptr.size==1){c.ox+=e.clientX-p[0];c.oy+=e.clientY-p[1];c.ptr.set(e.pointerId,[e.clientX,e.clientY]);cropDraw()}
+else{c.ptr.set(e.pointerId,[e.clientX,e.clientY]);const nd=pd();if(ld&&nd)cropZoom(c.zoom*nd/ld);ld=nd}});
+const up=e=>{c.ptr.delete(e.pointerId);ld=pd();cv.style.cursor='grab'};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+cv.addEventListener('wheel',e=>{e.preventDefault();cropZoom(c.zoom*(e.deltaY<0?1.08:.92))},{passive:false});
+d.querySelector('#cok').onclick=async e=>{const b=e.target,er=d.querySelector('#cerr');er.textContent='';b.disabled=true;b.textContent='Saving...';
+try{await saveImg(c.k,cropOut(),!!cfg.png);cropClose();A.msg='Image saved.';adm()}catch(x){b.disabled=false;b.textContent='Use this crop';er.textContent='Could not save: '+x.message}};
+cropLayout()}
+function closeAdmin(){sbSignOut();A.ok=false;A.step='email';A.msg='';adm()}
+function hashLogin(){const h=new URLSearchParams(location.hash.slice(1));if(h.get('access_token')){try{sessionStorage.setItem('sbs',JSON.stringify({access:h.get('access_token'),refresh:h.get('refresh_token'),exp:+h.get('expires_at')||Math.floor(Date.now()/1000)+(+h.get('expires_in')||3600)}))}catch(e){}history.replaceState(null,'',location.pathname)}}
+async function startAdmin(){hashLogin();try{await loadLive()}catch(x){A.msg='Could not load data: '+x.message}
+if(SES()){try{const ad=await sb('/rest/v1/admins?select=user_id',{auth:true});if(!ad.length)throw new Error('This account is not an admin.');await adminLoad();A.ok=true}catch(x){sbSignOut();A.msg=x.message}}adm()}
+startAdmin();
+</script></body></html>
